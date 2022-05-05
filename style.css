@@ -1,3 +1,5 @@
+/* ====================== GENERAL ================================== */
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -12,6 +14,8 @@
   --brand-light: hsl(148, 23%, 89%);
 
   font-size: 62.5%; /* 1rem = 10px (10*100)/16 */
+
+  --nav-height: 7.2rem;
 }
 
 body {
@@ -20,17 +24,22 @@ body {
   text-align: center;
 }
 
-header {
+.wrapper {
   width: 37.5rem;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 4.1rem;
+  margin-inline: auto;
+  padding-inline: 2.4rem;
+}
+
+/* =========================== HEADER ================================== */
+
+header {
+  margin-top: calc(4.1rem + var(--nav-height));
 }
 
 header::before {
-  content: "";
+  content: '';
   width: 100vw;
-  height: 108rem;
+  height: calc(108rem + var(--nav-height));
   background-color: var(--brand-light);
   display: block;
   position: absolute;
@@ -39,20 +48,20 @@ header::before {
   z-index: -1;
 }
 
-h4 {
+header h4 {
   font-size: 1.4rem;
   color: var(--primary-color);
   margin-bottom: 1.6rem;
 }
 
-h1 {
+header h1 {
   font-size: 3.4rem;
   color: var(--headline);
   line-height: 130%;
   margin-bottom: 2.4rem;
 }
 
-p {
+header p {
   font-size: 1.8rem;
   line-height: 150%;
   font-weight: 400;
@@ -60,7 +69,7 @@ p {
   margin-bottom: 3.2rem;
 }
 
-button {
+header button {
   background-color: var(--primary-color);
   border: none;
   border-radius: 4rem;
@@ -97,7 +106,6 @@ header img {
   gap: 6rem;
   border: 1px solid var(--brand-light);
   border-radius: 0.6rem;
-
 }
 
 .stat h3 {
@@ -112,4 +120,34 @@ header img {
   color: var(--primary-color);
   margin-bottom: 0;
   line-height: 150%;
+}
+
+/* =========================== NAV ================================== */
+
+nav {
+  display: flex;
+  height: var(--nav-height);
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+nav .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav.scroll {
+  background-color: var(--primary-color);
+  width: 100vw;
+}
+
+nav.scroll svg:nth-child(1) path {
+  fill: #ffffff;
+}
+
+nav.scroll svg:nth-child(2) path {
+  stroke: #ffffff;
 }
