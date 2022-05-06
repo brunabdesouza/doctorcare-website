@@ -5,3 +5,11 @@ const onScroll = () => {
     navigation.classList.remove('scroll')
   }
 }
+
+const openMenu = () => {
+  document.body.classList.add('expanded-menu')
+}
+
+const closeMenu = () => {
+  document.body.classList.remove('expanded-menu')
+}
