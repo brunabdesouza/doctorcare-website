@@ -8,7 +8,6 @@
 
 :root {
   --primary-color: hsl(170, 100%, 26%);
-  --background-color: hsl(148, 23%, 89%);
   --headline: hsl(210, 11%, 15%);
   --paragraph: hsl(210, 9%, 31%);
   --brand-beige: hsl(39, 100%, 97%);
@@ -152,7 +151,7 @@ body.expanded-menu .menu {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: var(--primary-color);
+  background: var(--primary-color);
   width: 100vw;
   height: 100vh;
   padding-top: var(--nav-height);
@@ -192,9 +191,9 @@ body.expanded-menu .menu {
 
 .social-links {
   display: flex;
-  gap: 3.2rem;
   align-items: center;
   justify-content: center;
+  gap: 3.2rem;
 }
 
 body.expanded-menu .logo,
@@ -264,16 +263,16 @@ body.expanded-menu button path {
 }
 
 #home .stats {
-  margin-inline: auto;
   width: 32.7rem;
   padding-block: 4rem;
+  margin-inline: auto;
   background-color: var(--brand-beige);
+  border: 1px solid var(--brand-light);
+  border-radius: 0.6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 6rem;
-  border: 1px solid var(--brand-light);
-  border-radius: 0.6rem;
 }
 
 #home .stat h3 {
@@ -284,15 +283,15 @@ body.expanded-menu button path {
 }
 
 #home .stat p {
-  font-size: 1.6rem;
-  color: var(--primary-color);
   margin: 0;
+  color: var(--primary-color);
+  font-size: 1.6rem;
   line-height: 150%;
 }
 
 /* =========================== SERVICES ================================== */
 
-#services h2 {
+#services header h2 {
   margin-bottom: 6rem;
 }
 
@@ -305,7 +304,7 @@ body.expanded-menu button path {
 #services .card {
   padding: 2.4rem;
   text-align: left;
-  background-color: #ffffff;
+  background: #ffffff;
   border: 1px solid var(--brand-light);
   border-radius: 0.6rem;
 }
