@@ -1,10 +1,26 @@
-const onScroll = () => {
+const showNavOnScroll = () => {
   if (scrollY > 0) {
     navigation.classList.add('scroll')
   } else {
     navigation.classList.remove('scroll')
   }
 }
+
+const showBackToTopButtonOnScroll = () => {
+  if (scrollY > 550) {
+    backToTopButton.classList.add('show')
+  } else {
+    backToTopButton.classList.remove('show')
+  }
+}
+
+const onScroll = () => {
+  showNavOnScroll()
+  showBackToTopButtonOnScroll()
+}
+
+window.addEventListener('scroll', onScroll)
+
 
 const openMenu = () => {
   document.body.classList.add('expanded-menu')
@@ -24,7 +40,7 @@ ScrollReveal({
   #home .stats, 
   #services,
   #services header,
-  #services .card,
+  #services .card
   #about,
   #about header,
   #about .content
