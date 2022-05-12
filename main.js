@@ -14,20 +14,35 @@ const showBackToTopButtonOnScroll = () => {
   }
 }
 
-const activateMenuAtCurrentSection = () => {
+const activateMenuAtCurrentSection = section => {
   const targetLine = scrollY + innerHeight / 2
 
-  const sectionTop = home.offSetTop
-  const sectionHeight = home.offSetHeight
+  const sectionTop = section.offsetTop
+  const sectionHeight = section.offsetHeight
+  const sectionReachedTopTargetLine = targetLine >= sectionTop
 
-  const sectionReachedTargetLine = targetLine >= sectionTop
   const sectionEndsAt = sectionTop + sectionHeight
+  const sectionReachedBottomTargetLine = sectionEndsAt <= targetLine
+
+  const sectionBoundaries =
+    sectionReachedTopTargetLine && !sectionReachedBottomTargetLine
+
+  const sectionId = section.getAttribute('id')
+  const menuElement = document.querySelector(`.menu a[href*=${sectionId}]`)
+
+  menuElement.classList.remove('active')
+  if (sectionBoundaries) {
+    menuElement.classList.add('active')
+  }
 }
 
 const onScroll = () => {
   showNavOnScroll()
   showBackToTopButtonOnScroll()
-  activateMenuAtCurrentSection()
+  activateMenuAtCurrentSection(home)
+  activateMenuAtCurrentSection(services)
+  activateMenuAtCurrentSection(about)
+  activateMenuAtCurrentSection(contact)
 }
 
 window.addEventListener('scroll', onScroll)
